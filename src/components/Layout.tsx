@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Sidebar, SidebarBody, SidebarLink } from "@/components/ui/sidebar";
-import { User, FolderKanban, Mail, X, Instagram, Linkedin, ChevronRight } from "lucide-react";
+import { User, FolderKanban, Mail, X, Instagram, Linkedin, ChevronRight, Github } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -47,6 +47,33 @@ export function Layout() {
               {links.map((link, idx) => (
                 <SidebarLink key={idx} link={link} />
               ))}
+              
+              {/* Social Links */}
+              <SidebarLink
+                link={{
+                  label: "GitHub",
+                  href: "https://github.com/anthonyharley32",
+                  icon: <Github className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />,
+                }}
+              />
+              <SidebarLink
+                link={{
+                  label: "X",
+                  href: "https://x.com/anthony_harley1",
+                  icon: (
+                    <svg className="h-5 w-5 text-neutral-700 dark:text-neutral-200" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                  ),
+                }}
+              />
+              <SidebarLink
+                link={{
+                  label: "LinkedIn",
+                  href: "https://www.linkedin.com/in/anthony-harley-b8622827b/",
+                  icon: <Linkedin className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />,
+                }}
+              />
             </div>
           </div>
         </SidebarBody>
@@ -63,13 +90,13 @@ export const Logo = () => {
       className="font-normal flex space-x-2 items-center text-sm text-black py-1 relative z-20"
     >
       <img
-        src="/Anthony Headshot.jpeg"
-        className="h-7 w-7 flex-shrink-0 rounded-full object-cover"
+        src="/AH_logo.png"
+        className="h-7 w-7 flex-shrink-0 rounded-sm object-cover"
         alt="Anthony Harley"
       />
       <motion.span
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+       animate={{ opacity: 1 }}
         className="font-medium text-black dark:text-white whitespace-pre"
       >
         Anthony Harley
@@ -85,8 +112,8 @@ export const LogoIcon = () => {
       className="font-normal flex space-x-2 items-center text-sm text-black py-1 relative z-20"
     >
       <img
-        src="/Anthony Headshot.jpeg"
-        className="h-7 w-7 flex-shrink-0 rounded-full object-cover"
+        src="/AH_logo.png"
+        className="h-7 w-7 flex-shrink-0 rounded-sm object-cover"
         alt="Anthony Harley"
       />
     </a>
@@ -106,19 +133,82 @@ const experienceData: ExperienceNode[] = [
     title: "BYU",
     period: "2021-2023",
     description: "Electrical Engineering",
-    children: [],
+    children: [
+      {
+        title: "Software Design",
+        children: [
+          { title: "C" },
+          { title: "C++" },
+          { title: "Arduino" },
+        ],
+      },
+      {
+        title: "Hardware Design",
+        children: [
+          { title: "PCB Design" },
+          { title: "Eagle" },
+          { title: "Fusion 360" },
+        ],
+      },
+    ],
   },
   {
-    title: "Electrical Engineering Firm",
-    period: "2023-2025",
-    description: "Engineering & Development",
-    children: [],
+    title: "Engin8 Engineering",
+    period: "2024-2025",
+    description: "Electrical Engineering & Development",
+    children: [
+      { title: "AutoCAD" },
+      { title: "Revit" },
+      { title: "Residential Schematic Design" },
+    ],
   },
   {
     title: "Gauntlet AI",
     period: "2025",
     description: "AI Development",
-    children: [],
+    children: [
+      {
+        title: "LLM Development",
+        children: [
+          { title: "LangChain" },
+          { title: "LangGraph" },
+          { title: "LangFuse" },
+          { title: "Agents" },
+          { title: "RAG" },
+          { title: "Fine Tuning" },
+        ],
+      },
+      {
+        title: "AI Modalities",
+        children: [
+          { title: "Voice AI" },
+          { title: "Computer Vision" },
+          { title: "Text-to-Video Generation" },
+        ],
+      },
+      {
+        title: "Full Stack Development",
+        children: [
+          { title: "TypeScript" },
+          { title: "Python" },
+          { title: "Supabase" },
+          { title: "Firestore" },
+          { title: "Swift" },
+          { title: "Mobile Development" },
+          { title: "ThreeJS" },
+          { title: "Chrome Extensions" },
+        ],
+      },
+      {
+        title: "Development Tools",
+        children: [
+          { title: "Cursor" },
+          { title: "Claude Code" },
+          { title: "Github" },
+          { title: "MCP" }
+        ],
+      },
+    ],
   },
   {
     title: "Alpha School",
@@ -139,10 +229,8 @@ const experienceData: ExperienceNode[] = [
       {
         title: "LLMs",
         children: [
-          { title: "OpenAI" },
-          { title: "Anthropic" },
+          { title: "Agent Orchestration" },
           { title: "Prompt Engineering" },
-          { title: "RAG" },
         ],
       },
       {
@@ -150,8 +238,7 @@ const experienceData: ExperienceNode[] = [
         children: [
           { title: "React" },
           { title: "TypeScript" },
-          { title: "Node.js" },
-          { title: "Next.js" },
+          { title: "Python" },
         ],
       },
     ],
@@ -216,7 +303,7 @@ const TreeNode = ({ node, depth = 0 }: { node: ExperienceNode; depth?: number })
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.2, ease: "easeInOut" }}
+            transition={{ duration: 0.1, ease: "easeInOut" }}
             className="overflow-hidden"
           >
             <div className="mt-1 space-y-1">
@@ -242,6 +329,75 @@ const ExperienceTimeline = () => {
   );
 };
 
+// Projects data structure
+interface Project {
+  title: string;
+  description: string;
+  url: string;
+  tags?: string[];
+  logo?: string;
+  logoAlt?: string;
+  demoUrl?: string;
+  demoUrl2?: string;
+}
+
+const projectsData: Project[] = [
+  {
+    title: "Navi",
+    description: "The first and best LLM service with chat branching. Just highlight text and answer questions with perfect context management",
+    url: "https://chatnavi.ai/",
+    tags: ["React", "TypeScript", "Agents"],
+    logo: "/navi-logo.png",
+    logoAlt: "Navi logo",
+  },
+  {
+    title: "LlamaBar",
+    description: "Chrome extension for interacting with Ollama - local AI assistant powered by open-source LLMs",
+    url: "https://chromewebstore.google.com/detail/llamabar/bflbgodpnihocldimhbcieiocbekecpi",
+    tags: ["Chrome Extensions", "TypeScript"],
+    logo: "/llamabar-logo.jpg",
+    logoAlt: "LlamaBar logo",
+    demoUrl: "https://x.com/anthony_harley1/status/1892079890611962153?s=20",
+  },
+  {
+    title: "StadiumSync",
+    description: "Stadium CRM for fans and venues built in 1 week! RAG pipeline implemented with autocomplete and self-learning responses.",
+    url: "#",
+    tags: ["Mobile Development", "RAG", "LangChain"],
+    logo: "/stadiumsync.jpg",
+    logoAlt: "StadiumSync logo",
+    demoUrl: "https://x.com/anthony_harley1/status/1882951403301388447?s=20",
+    demoUrl2: "https://x.com/anthony_harley1/status/1885918582883631461?s=20",
+  },
+  {
+    title: "VistaVid",
+    description: "TikTok Clone built with AI features like on device motion detection and content moderation with fine-tuned model.",
+    url: "#",
+    tags: ["Swift", "Computer Vision", "Fine Tuning"],
+    logo: "/vistavid.png",
+    logoAlt: "VistaVid logo",
+    demoUrl: "https://x.com/anthony_harley1/status/1889877147080335697?s=20",
+    demoUrl2: "https://x.com/anthony_harley1/status/1890906835009343871?s=20",
+  },
+  {
+    title: "ChatGenius",
+    description: "Slack clone with AI features like avatar responses",
+    url: "#",
+    tags: ["React", "Voice AI", "Python"],
+    logo: "/chatgenius.png",
+    logoAlt: "ChatGenius logo",
+    demoUrl: "https://x.com/anthony_harley1/status/1877875751174766842?s=20",
+    demoUrl2: "https://x.com/anthony_harley1/status/1880405339532915125?s=20",
+  },
+  {
+    title: "AI Video Generation",
+    description: "Using script and JSON to generated animated videos with AI",
+    url: "#",
+    tags: ["Text-to-Video Generation", "Python"],
+    demoUrl: "https://x.com/anthony_harley1/status/1903568045697847558?s=20",
+  },
+];
+
 // Main content with scrollable sections
 const MainContent = () => {
   const [contactOpen, setContactOpen] = useState(false);
@@ -255,7 +411,7 @@ const MainContent = () => {
       >
         <div className="max-w-5xl w-full flex flex-col md:flex-row items-center gap-12">
           {/* Image */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 hover:scale-105 transition-transform duration-100">
             <motion.img
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -264,7 +420,7 @@ const MainContent = () => {
               alt="Anthony Harley"
               className="w-64 h-80 md:w-80 md:h-96 object-cover shadow-xl"
               style={{
-                clipPath: "polygon(15% 0, 100% 0, 100% 85%, 85% 100%, 0 100%, 0 15%)"
+                clipPath: "polygon(18% 0, 100% 0, 100% 85%, 82% 100%, 0 100%, 0 15%)"
               }}
             />
           </div>
@@ -314,26 +470,115 @@ const MainContent = () => {
       {/* Projects Section */}
       <section
         id="projects"
-        className="min-h-screen flex items-center justify-center p-10"
+        className="py-20 px-10"
       >
-        <div className="max-w-6xl w-full">
+        <div className="max-w-6xl w-full mx-auto">
           <h2 className="text-4xl font-bold text-neutral-800 dark:text-neutral-100 mb-8">
             Projects
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => (
-              <div
-                key={i}
-                className="bg-neutral-100 dark:bg-neutral-800 rounded-xl p-6 hover:shadow-lg transition-shadow"
+            {projectsData.map((project, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-neutral-100 dark:bg-neutral-800 rounded-xl p-6 hover:shadow-lg hover:scale-105 transition-transform duration-100 flex flex-col"
               >
-                <div className="h-40 bg-neutral-200 dark:bg-neutral-700 rounded-lg mb-4"></div>
-                <h3 className="text-xl font-semibold text-neutral-800 dark:text-neutral-100 mb-2">
-                  Project {i}
-                </h3>
-                <p className="text-neutral-600 dark:text-neutral-400">
-                  A brief description of this project and what it does.
+                <div className="flex items-center gap-3 mb-2">
+                  <h3 className="text-xl font-semibold text-neutral-800 dark:text-neutral-100">
+                    {project.title}
+                  </h3>
+                  {project.logo && (
+                    <img
+                      src={project.logo}
+                      alt={project.logoAlt || project.title}
+                      className="h-8 w-8 object-contain rounded-lg flex-shrink-0"
+                    />
+                  )}
+                </div>
+                <p className="text-neutral-600 dark:text-neutral-400 mb-4">
+                  {project.description}
                 </p>
-              </div>
+                {project.tags && (
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tags.map((tag, tagIndex) => (
+                      <span
+                        key={tagIndex}
+                        className="px-3 py-1 text-xs font-medium bg-neutral-200 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300 rounded-full"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+                
+                {/* Buttons */}
+                {project.title === "Navi" ? (
+                  // Navi: Only "Visit App" button
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-auto px-4 py-2 bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white text-sm font-medium rounded-lg border-2 border-neutral-900 dark:border-white hover:scale-105 transition-transform duration-100 text-center cursor-pointer"
+                  >
+                    Visit App
+                  </a>
+                ) : project.title === "LlamaBar" ? (
+                  // LlamaBar: Combined button with divider
+                  <div className="mt-auto flex rounded-lg overflow-hidden border-2 border-neutral-900 dark:border-white">
+                    <a
+                      href={project.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 px-4 py-2 bg-neutral-800 dark:bg-neutral-100 text-white dark:text-neutral-900 text-sm font-medium text-center cursor-pointer hover:scale-105 transition-transform duration-100"
+                    >
+                      View Demo
+                    </a>
+                    <div className="w-px bg-neutral-900 dark:bg-white"></div>
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 px-4 py-2 bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white text-sm font-medium text-center cursor-pointer hover:scale-105 transition-transform duration-100"
+                    >
+                      Visit App
+                    </a>
+                  </div>
+                ) : project.demoUrl2 ? (
+                  // Projects with two demos: split button design
+                  <div className="mt-auto flex rounded-lg overflow-hidden border-2 border-neutral-900 dark:border-white">
+                    <a
+                      href={project.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 px-4 py-2 bg-neutral-900 dark:bg-neutral-900 text-white dark:text-white text-sm font-medium text-center cursor-pointer hover:scale-105 transition-transform duration-100 origin-right"
+                    >
+                      View Demo 1
+                    </a>
+                    <div className="w-px bg-white dark:bg-white"></div>
+                    <a
+                      href={project.demoUrl2}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 px-4 py-2 bg-neutral-900 dark:bg-neutral-900 text-white dark:text-white text-sm font-medium text-center cursor-pointer hover:scale-105 transition-transform duration-100 origin-left"
+                    >
+                      View Demo 2
+                    </a>
+                  </div>
+                ) : project.demoUrl ? (
+                  // All others: "View Demo" button
+                  <a
+                    href={project.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-auto px-4 py-2 bg-neutral-800 dark:bg-neutral-100 text-white dark:text-neutral-900 text-sm font-medium rounded-lg hover:scale-105 transition-transform duration-100 text-center cursor-pointer"
+                  >
+                    View Demo
+                  </a>
+                ) : null}
+              </motion.div>
             ))}
           </div>
         </div>
@@ -344,14 +589,19 @@ const MainContent = () => {
         id="contact"
         className="py-20 px-10"
       >
+        {/* Divider */}
+        <div className="max-w-6xl mx-auto mb-12">
+          <div className="w-full h-px bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-600 to-transparent" />
+        </div>
+        
         <div className="max-w-2xl mx-auto flex flex-col items-center">
+          
           {/* Get In Touch Button */}
           <motion.button
             onClick={() => setContactOpen(true)}
-            whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             className={cn(
-              "px-8 py-4 transition-all duration-300 cursor-pointer",
+              "px-8 py-4 cursor-pointer hover:scale-105 transition-transform duration-100",
               "bg-gradient-to-br from-neutral-800 to-neutral-900 dark:from-neutral-100 dark:to-neutral-200",
               "hover:shadow-xl hover:shadow-neutral-400/20"
             )}
@@ -381,14 +631,14 @@ const MainContent = () => {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
+              transition={{ duration: 0.1, ease: "easeOut" }}
               className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none"
             >
               <div className="bg-white dark:bg-neutral-900 rounded-2xl shadow-2xl w-full max-w-lg pointer-events-auto relative">
                 {/* Close button */}
                 <button
                   onClick={() => setContactOpen(false)}
-                  className="absolute top-4 right-4 p-2 rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors cursor-pointer"
+                  className="absolute top-4 right-4 p-2 rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:scale-105 transition-all duration-100 cursor-pointer"
                 >
                   <X className="h-5 w-5 text-neutral-500" />
                 </button>
@@ -451,7 +701,7 @@ const MainContent = () => {
                     </div>
                     <button 
                       type="submit"
-                      className="w-full bg-neutral-800 dark:bg-neutral-100 text-white dark:text-neutral-900 py-3 rounded-lg font-medium hover:bg-neutral-700 dark:hover:bg-neutral-200 transition-colors cursor-pointer"
+                      className="w-full bg-neutral-800 dark:bg-neutral-100 text-white dark:text-neutral-900 py-3 rounded-lg font-medium hover:scale-105 transition-transform duration-100 cursor-pointer"
                     >
                       Send Message
                     </button>
@@ -470,7 +720,7 @@ const MainContent = () => {
                       href="https://x.com/anthony_harley1"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 rounded-full bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors"
+                      className="p-3 rounded-full bg-neutral-100 dark:bg-neutral-800 hover:scale-105 transition-transform duration-100"
                     >
                       <svg className="h-5 w-5 text-neutral-700 dark:text-neutral-300" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -480,7 +730,7 @@ const MainContent = () => {
                       href="https://www.instagram.com/anthony_harley32/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 rounded-full bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors"
+                      className="p-3 rounded-full bg-neutral-100 dark:bg-neutral-800 hover:scale-105 transition-transform duration-100"
                     >
                       <Instagram className="h-5 w-5 text-neutral-700 dark:text-neutral-300" />
                     </a>
@@ -488,7 +738,7 @@ const MainContent = () => {
                       href="https://www.linkedin.com/in/anthony-harley-b8622827b/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 rounded-full bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors"
+                      className="p-3 rounded-full bg-neutral-100 dark:bg-neutral-800 hover:scale-105 transition-transform duration-100"
                     >
                       <Linkedin className="h-5 w-5 text-neutral-700 dark:text-neutral-300" />
                     </a>
