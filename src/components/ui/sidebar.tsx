@@ -9,6 +9,7 @@ interface Links {
   label: string;
   href: string;
   icon: React.JSX.Element | React.ReactNode;
+  onClick?: () => void;
 }
 
 interface SidebarContextProps {
@@ -88,11 +89,11 @@ export const DesktopSidebar = ({
   return (
     <motion.div
       className={cn(
-        "h-full px-4 py-4 hidden md:flex md:flex-col bg-neutral-100 dark:bg-neutral-800 w-[240px] flex-shrink-0",
+        "h-full px-4 py-4 hidden md:flex md:flex-col bg-neutral-100 dark:bg-neutral-800 w-[180px] flex-shrink-0",
         className
       )}
       animate={{
-        width: animate ? (open ? "240px" : "60px") : "240px",
+        width: animate ? (open ? "180px" : "60px") : "180px",
       }}
       transition={{
         duration: 0.1,
@@ -166,11 +167,20 @@ export const SidebarLink = ({
   className?: string;
 } & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'>) => {
   const { open, animate } = useSidebar();
+  
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (link.onClick) {
+      e.preventDefault();
+      link.onClick();
+    }
+  };
+  
   return (
     <a
       href={link.href}
+      onClick={handleClick}
       className={cn(
-        "flex items-center justify-start gap-2 group/sidebar py-2",
+        "flex items-center justify-start gap-2 group/sidebar py-2 cursor-pointer",
         className
       )}
       {...props}

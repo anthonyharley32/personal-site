@@ -2,11 +2,14 @@
 
 import { useState } from "react";
 import { Sidebar, SidebarBody, SidebarLink } from "@/components/ui/sidebar";
-import { User, FolderKanban, Mail, X, Instagram, Linkedin, ChevronRight, Github } from "lucide-react";
+import { User, FolderKanban, Mail, X, Instagram, Linkedin, ChevronRight, Github, Download } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 export function Layout() {
+  const [open, setOpen] = useState(false);
+  const [contactOpen, setContactOpen] = useState(false);
+
   const links = [
     {
       label: "About",
@@ -28,9 +31,9 @@ export function Layout() {
       icon: (
         <Mail className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
+      onClick: () => setContactOpen(true),
     },
   ];
-  const [open, setOpen] = useState(false);
 
   return (
     <div
@@ -78,7 +81,7 @@ export function Layout() {
           </div>
         </SidebarBody>
       </Sidebar>
-      <MainContent />
+      <MainContent contactOpen={contactOpen} setContactOpen={setContactOpen} />
     </div>
   );
 }
@@ -130,36 +133,36 @@ interface ExperienceNode {
 
 const experienceData: ExperienceNode[] = [
   {
-    title: "BYU",
-    period: "2021-2023",
-    description: "Electrical Engineering",
+    title: "Alpha School",
+    period: "2025",
+    description: "AI Engineering",
     children: [
       {
-        title: "Software Design",
+        title: "AWS",
         children: [
-          { title: "C" },
-          { title: "C++" },
-          { title: "Arduino" },
+          { title: "EC2" },
+          { title: "Amplify" },
+          { title: "AppRunner" },
+          { title: "Lambda" },
+          { title: "S3" },
+          { title: "DynamoDB" },
         ],
       },
       {
-        title: "Hardware Design",
+        title: "LLMs",
         children: [
-          { title: "PCB Design" },
-          { title: "Eagle" },
-          { title: "Fusion 360" },
+          { title: "Agent Orchestration" },
+          { title: "Prompt Engineering" },
         ],
       },
-    ],
-  },
-  {
-    title: "Engin8 Engineering",
-    period: "2024-2025",
-    description: "Electrical Engineering & Development",
-    children: [
-      { title: "AutoCAD" },
-      { title: "Revit" },
-      { title: "Residential Schematic Design" },
+      {
+        title: "Full Stack Engineering",
+        children: [
+          { title: "React" },
+          { title: "TypeScript" },
+          { title: "Python" },
+        ],
+      },
     ],
   },
   {
@@ -211,34 +214,34 @@ const experienceData: ExperienceNode[] = [
     ],
   },
   {
-    title: "Alpha School",
-    period: "2025-Present",
-    description: "AI Engineering",
+    title: "Engin8 Engineering",
+    period: "2024-2025",
+    description: "Electrical Engineering & Development",
+    children: [
+      { title: "AutoCAD" },
+      { title: "Revit" },
+      { title: "Residential Schematic Design" },
+    ],
+  },
+  {
+    title: "BYU",
+    period: "2021-2023",
+    description: "Electrical Engineering",
     children: [
       {
-        title: "AWS",
+        title: "Software Design",
         children: [
-          { title: "EC2" },
-          { title: "Amplify" },
-          { title: "AppRunner" },
-          { title: "Lambda" },
-          { title: "S3" },
-          { title: "DynamoDB" },
+          { title: "C" },
+          { title: "C++" },
+          { title: "Arduino" },
         ],
       },
       {
-        title: "LLMs",
+        title: "Hardware Design",
         children: [
-          { title: "Agent Orchestration" },
-          { title: "Prompt Engineering" },
-        ],
-      },
-      {
-        title: "Full Stack Engineering",
-        children: [
-          { title: "React" },
-          { title: "TypeScript" },
-          { title: "Python" },
+          { title: "PCB Design" },
+          { title: "Eagle" },
+          { title: "Fusion 360" },
         ],
       },
     ],
@@ -339,6 +342,7 @@ interface Project {
   logoAlt?: string;
   demoUrl?: string;
   demoUrl2?: string;
+  githubUrl?: string;
 }
 
 const projectsData: Project[] = [
@@ -358,6 +362,7 @@ const projectsData: Project[] = [
     logo: "/llamabar-logo.jpg",
     logoAlt: "LlamaBar logo",
     demoUrl: "https://x.com/anthony_harley1/status/1892079890611962153?s=20",
+    githubUrl: "https://github.com/anthonyharley32/LlamaBar",
   },
   {
     title: "StadiumSync",
@@ -368,6 +373,7 @@ const projectsData: Project[] = [
     logoAlt: "StadiumSync logo",
     demoUrl: "https://x.com/anthony_harley1/status/1882951403301388447?s=20",
     demoUrl2: "https://x.com/anthony_harley1/status/1885918582883631461?s=20",
+    githubUrl: "https://github.com/anthonyharley32/stadium-sync",
   },
   {
     title: "VistaVid",
@@ -378,6 +384,7 @@ const projectsData: Project[] = [
     logoAlt: "VistaVid logo",
     demoUrl: "https://x.com/anthony_harley1/status/1889877147080335697?s=20",
     demoUrl2: "https://x.com/anthony_harley1/status/1890906835009343871?s=20",
+    githubUrl: "https://github.com/anthonyharley32/VistaVid",
   },
   {
     title: "ChatGenius",
@@ -388,6 +395,7 @@ const projectsData: Project[] = [
     logoAlt: "ChatGenius logo",
     demoUrl: "https://x.com/anthony_harley1/status/1877875751174766842?s=20",
     demoUrl2: "https://x.com/anthony_harley1/status/1880405339532915125?s=20",
+    githubUrl: "https://github.com/anthonyharley32/chat-genius",
   },
   {
     title: "AI Video Generation",
@@ -395,12 +403,12 @@ const projectsData: Project[] = [
     url: "#",
     tags: ["Text-to-Video Generation", "Python"],
     demoUrl: "https://x.com/anthony_harley1/status/1903568045697847558?s=20",
+    githubUrl: "https://github.com/anthonyharley32/vid-gen-server",
   },
 ];
 
 // Main content with scrollable sections
-const MainContent = () => {
-  const [contactOpen, setContactOpen] = useState(false);
+const MainContent = ({ contactOpen, setContactOpen }: { contactOpen: boolean; setContactOpen: (open: boolean) => void }) => {
   
   return (
     <div className="flex-1 overflow-y-auto scroll-smooth bg-white dark:bg-neutral-900 rounded-tl-2xl border-l border-t border-neutral-200 dark:border-neutral-700">
@@ -446,10 +454,33 @@ const MainContent = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-lg text-neutral-600 dark:text-neutral-400 mb-4"
+              className="text-lg text-neutral-600 dark:text-neutral-400 mb-8"
             >
-              I'm an AI engineer with a background in electrical engineering, now focused on building intelligent systems and modern web applications. I work with LLMs, cloud infrastructure, and full-stack development.
+              I build production AI systems that drive real outcomes. From shipping the first LLM chat service with branching (Navi) to building full-stack mobile apps in 1 week, I rapidly prototype and deploy intelligent systems. Trained in AI engineering with AWS + advanced LLMs, specializing in LangChain, RAG pipelines, and full-stack development.
             </motion.p>
+            
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="flex flex-wrap gap-4"
+            >
+              <button
+                onClick={() => setContactOpen(true)}
+                className="px-6 py-3 bg-neutral-800 dark:bg-neutral-100 text-white dark:text-neutral-900 rounded-lg font-medium hover:scale-105 transition-transform duration-100 cursor-pointer"
+              >
+                Get In Touch
+              </button>
+              <a
+                href="/Software Engineering Resume.png"
+                download="Anthony_Harley_Resume.png"
+                className="px-6 py-3 bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white rounded-lg font-medium border-2 border-neutral-800 dark:border-neutral-100 hover:scale-105 transition-transform duration-100 cursor-pointer flex items-center gap-2"
+              >
+                <Download className="h-5 w-5" />
+                Resume
+              </a>
+            </motion.div>
           </div>
         </div>
 
@@ -484,8 +515,21 @@ const MainContent = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-neutral-100 dark:bg-neutral-800 rounded-xl p-6 hover:shadow-lg hover:scale-105 transition-transform duration-100 flex flex-col"
+                className="bg-neutral-100 dark:bg-neutral-800 rounded-xl p-6 hover:shadow-lg hover:scale-105 transition-transform duration-100 flex flex-col relative"
               >
+                {/* GitHub Icon in top right */}
+                {project.githubUrl && (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute top-4 right-4 p-2 rounded-full hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors duration-100"
+                    aria-label="View on GitHub"
+                  >
+                    <Github className="h-5 w-5 text-neutral-600 dark:text-neutral-400" />
+                  </a>
+                )}
+                
                 <div className="flex items-center gap-3 mb-2">
                   <h3 className="text-xl font-semibold text-neutral-800 dark:text-neutral-100">
                     {project.title}
@@ -601,12 +645,12 @@ const MainContent = () => {
             onClick={() => setContactOpen(true)}
             whileTap={{ scale: 0.98 }}
             className={cn(
-              "px-8 py-4 cursor-pointer hover:scale-105 transition-transform duration-100",
-              "bg-gradient-to-br from-neutral-800 to-neutral-900 dark:from-neutral-100 dark:to-neutral-200",
+              "px-8 py-4 cursor-pointer hover:scale-105 transition-transform duration-100 rounded-lg",
+              "bg-neutral-800 dark:bg-neutral-100 text-white dark:text-neutral-900",
               "hover:shadow-xl hover:shadow-neutral-400/20"
             )}
           >
-            <span className="text-xl font-semibold text-white dark:text-neutral-900">
+            <span className="text-xl font-semibold">
               Get In Touch
             </span>
           </motion.button>
