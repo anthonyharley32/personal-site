@@ -138,33 +138,29 @@ const experienceData: ExperienceNode[] = [
     description: "AI Engineer & Developer",
     children: [
       {
-        title: "Video Pipeline",
+        title: "SXSW Interactive Experience",
         children: [
+          { title: "Flutter Tablet App" },
+          { title: "React TV Display" },
+          { title: "Node.js + WebSocket Backend" },
+          {
+            title: "Multi-AI Pipeline",
+            children: [
+              { title: "Claude" },
+              { title: "OpenAI GPT Image" },
+              { title: "ElevenLabs" },
+              { title: "LTX Video" },
+            ],
+          },
+        ],
+      },
+      {
+        title: "Operation Gigawatt Summit",
+        children: [
+          { title: "React Frontend" },
+          { title: "Python + ffmpeg Pipeline" },
           { title: "Google Veo" },
           { title: "ElevenLabs" },
-          { title: "Python + ffmpeg" },
-        ],
-      },
-      {
-        title: "Frontend",
-        children: [
-          { title: "React 19" },
-          { title: "TypeScript" },
-          { title: "Vite" },
-        ],
-      },
-      {
-        title: "Games",
-        children: [
-          { title: "Gigawatt Ops" },
-          { title: "Smash Summit" },
-        ],
-      },
-      {
-        title: "Infrastructure",
-        children: [
-          { title: "AWS S3" },
-          { title: "Vercel" },
         ],
       },
     ],
