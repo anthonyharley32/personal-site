@@ -386,18 +386,18 @@ interface Project {
 const projectsData: Project[] = [
   {
     title: "Rule Check",
-    description: "AI rules expert and adaptive learning platform for NFHS basketball officials. Agentic RAG with custom retrieval tools, hybrid vector + BM25 search, and a 1,679-KP spaced-repetition engine — live with paid subscriptions.",
+    description: "Live SaaS for NFHS officials — agentic RAG with LangSmith evals, 76.9% benchmark precision, and spaced repetition over 1,679 atomic knowledge points.",
     url: "https://rulecheck.ai",
-    tags: ["React 19", "FastAPI", "pgvector", "Supabase", "RAG", "Stripe", "AWS Amplify"],
+    tags: ["React", "Python", "RAG", "Supabase", "Stripe"],
     logo: "/rulecheck-logo.png",
     logoAlt: "Rule Check logo",
     showVisitApp: true,
   },
   {
     title: "Operation Gigawatt Summit",
-    description: "Phone-first web experience for a May 2026 energy summit — six AI-generated cinematic vertical videos (Google Veo 3.1 + ElevenLabs) assembled with a custom Python/ffmpeg pipeline, a survey wizard, and two hidden web games. With Jared Lambert (PM) and Jefferson Lambert (video scripts).",
+    description: "Interactive web experience for energy leaders, investors, and policymakers at the Operation Gigawatt Summit (Park City, May 2026) — AI-generated door videos, survey wizard, and two hidden games.",
     url: "https://frontend-three-delta-12.vercel.app",
-    tags: ["React 19", "TypeScript", "Python", "ffmpeg", "Google Veo 3.1", "ElevenLabs", "AWS S3"],
+    tags: ["React", "Python", "Google Veo 3.1", "ElevenLabs", "AWS S3"],
     logo: "/ogs-logo.svg",
     logoAlt: "Operation Gigawatt Summit logo",
     showVisitApp: true,
