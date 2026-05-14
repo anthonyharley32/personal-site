@@ -340,6 +340,7 @@ interface Project {
   tags?: string[];
   logo?: string;
   logoAlt?: string;
+  showVisitApp?: boolean;
   demoUrl?: string;
   demoUrl2?: string;
   githubUrl?: string;
@@ -347,12 +348,31 @@ interface Project {
 
 const projectsData: Project[] = [
   {
+    title: "Rule Check",
+    description: "AI rules expert and adaptive learning platform for NFHS basketball officials. Agentic RAG with custom retrieval tools, hybrid vector + BM25 search, and a 1,679-KP spaced-repetition engine — live with paid subscriptions.",
+    url: "https://rulecheck.ai",
+    tags: ["React 19", "FastAPI", "pgvector", "Supabase", "RAG", "Stripe", "AWS Amplify"],
+    logo: "/rulecheck-logo.png",
+    logoAlt: "Rule Check logo",
+    showVisitApp: true,
+  },
+  {
+    title: "Operation Gigawatt Summit",
+    description: "Phone-first web experience for a May 2026 energy summit — six AI-generated cinematic vertical videos (Google Veo 3.1 + ElevenLabs) assembled with a custom Python/ffmpeg pipeline, a survey wizard, and two hidden web games. With Jared Lambert (PM) and Jefferson Lambert (video scripts).",
+    url: "https://frontend-three-delta-12.vercel.app",
+    tags: ["React 19", "TypeScript", "Python", "ffmpeg", "Google Veo 3.1", "ElevenLabs", "AWS S3"],
+    logo: "/ogs-logo.png",
+    logoAlt: "Operation Gigawatt Summit logo",
+    showVisitApp: true,
+  },
+  {
     title: "Navi",
     description: "The first and best LLM service with chat branching. Just highlight text and answer questions with perfect context management",
     url: "https://chatnavi.ai/",
     tags: ["React", "TypeScript", "Agents"],
     logo: "/navi-logo.png",
     logoAlt: "Navi logo",
+    showVisitApp: true,
   },
   {
     title: "LlamaBar",
@@ -561,8 +581,7 @@ const MainContent = ({ contactOpen, setContactOpen }: { contactOpen: boolean; se
                 )}
                 
                 {/* Buttons */}
-                {project.title === "Navi" ? (
-                  // Navi: Only "Visit App" button
+                {project.showVisitApp && !project.demoUrl ? (
                   <a
                     href={project.url}
                     target="_blank"
