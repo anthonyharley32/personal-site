@@ -378,6 +378,7 @@ interface Project {
   logo?: string;
   logoAlt?: string;
   showVisitApp?: boolean;
+  comingSoon?: boolean;
   demoUrl?: string;
   demoUrl2?: string;
   githubUrl?: string;
@@ -391,7 +392,7 @@ const projectsData: Project[] = [
     tags: ["React", "Python", "Google Veo 3.1", "ElevenLabs", "AWS S3"],
     logo: "/ogs-logo.svg",
     logoAlt: "Operation Gigawatt Summit logo",
-    showVisitApp: true,
+    comingSoon: true,
   },
   {
     title: "Rule Check",
@@ -618,7 +619,11 @@ const MainContent = ({ contactOpen, setContactOpen }: { contactOpen: boolean; se
                 )}
                 
                 {/* Buttons */}
-                {project.showVisitApp && !project.demoUrl ? (
+                {project.comingSoon ? (
+                  <span className="mt-auto px-4 py-2 bg-neutral-200 dark:bg-neutral-700 text-neutral-400 dark:text-neutral-500 text-sm font-medium rounded-lg text-center select-none">
+                    Coming Soon
+                  </span>
+                ) : project.showVisitApp && !project.demoUrl ? (
                   <a
                     href={project.url}
                     target="_blank"
