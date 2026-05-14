@@ -421,12 +421,13 @@ const MainContent = ({ contactOpen, setContactOpen }: { contactOpen: boolean; se
           {/* Image */}
           <div className="flex-shrink-0 hover:scale-105 transition-transform duration-100">
             <motion.img
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
+              initial={{ scale: 0.97 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.4 }}
               src="/anthony bodybodyshot.JPG"
               alt="Anthony Harley"
               className="w-64 h-80 md:w-80 md:h-96 object-cover shadow-xl"
+              fetchPriority="high"
               style={{
                 clipPath: "polygon(18% 0, 100% 0, 100% 85%, 82% 100%, 0 100%, 0 15%)"
               }}
@@ -539,6 +540,7 @@ const MainContent = ({ contactOpen, setContactOpen }: { contactOpen: boolean; se
                       src={project.logo}
                       alt={project.logoAlt || project.title}
                       className="h-8 w-8 object-contain rounded-lg flex-shrink-0"
+                      loading="lazy"
                     />
                   )}
                 </div>
