@@ -133,6 +133,43 @@ interface ExperienceNode {
 
 const experienceData: ExperienceNode[] = [
   {
+    title: "Abundance Institute",
+    period: "2026",
+    description: "AI Engineer & Developer",
+    children: [
+      {
+        title: "Video Pipeline",
+        children: [
+          { title: "Google Veo 3.1" },
+          { title: "ElevenLabs" },
+          { title: "Python + ffmpeg" },
+        ],
+      },
+      {
+        title: "Frontend",
+        children: [
+          { title: "React 19" },
+          { title: "TypeScript" },
+          { title: "Vite" },
+        ],
+      },
+      {
+        title: "Games",
+        children: [
+          { title: "Gigawatt Ops" },
+          { title: "Smash Summit" },
+        ],
+      },
+      {
+        title: "Infrastructure",
+        children: [
+          { title: "AWS S3" },
+          { title: "Vercel" },
+        ],
+      },
+    ],
+  },
+  {
     title: "Alpha School",
     period: "2025",
     description: "AI Engineering",
@@ -361,7 +398,7 @@ const projectsData: Project[] = [
     description: "Phone-first web experience for a May 2026 energy summit — six AI-generated cinematic vertical videos (Google Veo 3.1 + ElevenLabs) assembled with a custom Python/ffmpeg pipeline, a survey wizard, and two hidden web games. With Jared Lambert (PM) and Jefferson Lambert (video scripts).",
     url: "https://frontend-three-delta-12.vercel.app",
     tags: ["React 19", "TypeScript", "Python", "ffmpeg", "Google Veo 3.1", "ElevenLabs", "AWS S3"],
-    logo: "/ogs-logo.png",
+    logo: "/ogs-logo.svg",
     logoAlt: "Operation Gigawatt Summit logo",
     showVisitApp: true,
   },
