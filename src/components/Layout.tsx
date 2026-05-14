@@ -138,29 +138,35 @@ const experienceData: ExperienceNode[] = [
     description: "AI Engineer & Developer",
     children: [
       {
-        title: "SXSW Interactive Experience",
+        title: "Mobile Development",
         children: [
-          { title: "Flutter Tablet App" },
-          { title: "React TV Display" },
-          { title: "Node.js + WebSocket Backend" },
-          {
-            title: "Multi-AI Pipeline",
-            children: [
-              { title: "Claude" },
-              { title: "OpenAI GPT Image" },
-              { title: "ElevenLabs" },
-              { title: "LTX Video" },
-            ],
-          },
+          { title: "Flutter" },
+          { title: "Dart" },
         ],
       },
       {
-        title: "Operation Gigawatt Summit",
+        title: "Full Stack",
         children: [
-          { title: "React Frontend" },
-          { title: "Python + ffmpeg Pipeline" },
-          { title: "Google Veo" },
+          { title: "React" },
+          { title: "Node.js" },
+          { title: "WebSocket" },
+        ],
+      },
+      {
+        title: "Multi-AI Pipeline",
+        children: [
+          { title: "Claude" },
+          { title: "OpenAI" },
           { title: "ElevenLabs" },
+          { title: "LTX Video" },
+          { title: "Google Veo" },
+        ],
+      },
+      {
+        title: "Video Production",
+        children: [
+          { title: "Python" },
+          { title: "ffmpeg" },
         ],
       },
     ],
@@ -389,6 +395,14 @@ const projectsData: Project[] = [
     logo: "/ogs-logo.svg",
     logoAlt: "Operation Gigawatt Summit logo",
     comingSoon: true,
+  },
+  {
+    title: "Abundance SXSW Experience",
+    description: "Interactive AI experience shown at SXSW 2026 — attendees tap their interests on a Flutter tablet and a personalized 50-year vision plan renders live on a TV via a Node.js/WebSocket backend running a 6-provider AI pipeline.",
+    url: "#",
+    tags: ["React", "Flutter", "Node.js", "Claude", "ElevenLabs"],
+    logo: "/abundance-logo.png",
+    logoAlt: "Abundance Institute logo",
   },
   {
     title: "Rule Check",
