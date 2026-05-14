@@ -396,7 +396,7 @@ const projectsData: Project[] = [
   },
   {
     title: "Rule Check",
-    description: "Live SaaS for NFHS officials — agentic RAG with a custom LangSmith benchmark, and spaced repetition over 1,679 atomic knowledge points.",
+    description: "Live SaaS for NFHS officials — agentic RAG rules expert with a custom eval benchmark, plus an adaptive learning engine that maps and schedules 1,000+ knowledge points via spaced repetition.",
     url: "https://rulecheck.ai",
     tags: ["React", "Python", "RAG", "Supabase", "Stripe"],
     logo: "/rulecheck-logo.png",
