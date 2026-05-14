@@ -542,8 +542,8 @@ const MainContent = ({ contactOpen, setContactOpen }: { contactOpen: boolean; se
                 Get In Touch
               </button>
               <a
-                href="/Software Engineering Resume.png"
-                download="Anthony_Harley_Resume.png"
+                href="/Anthony_Harley_Resume.pdf"
+                download="Anthony_Harley_Resume.pdf"
                 className="px-6 py-3 bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white rounded-lg font-medium border-2 border-neutral-800 dark:border-neutral-100 hover:scale-105 transition-transform duration-100 cursor-pointer flex items-center gap-2"
               >
                 <Download className="h-5 w-5" />
