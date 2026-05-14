@@ -385,21 +385,21 @@ interface Project {
 
 const projectsData: Project[] = [
   {
-    title: "Rule Check",
-    description: "Live SaaS for NFHS officials — agentic RAG with LangSmith evals, 76.9% benchmark precision, and spaced repetition over 1,679 atomic knowledge points.",
-    url: "https://rulecheck.ai",
-    tags: ["React", "Python", "RAG", "Supabase", "Stripe"],
-    logo: "/rulecheck-logo.png",
-    logoAlt: "Rule Check logo",
-    showVisitApp: true,
-  },
-  {
     title: "Operation Gigawatt Summit",
     description: "Interactive web experience for energy leaders, investors, and policymakers at the Operation Gigawatt Summit (Park City, May 2026) — AI-generated door videos, survey wizard, and two hidden games.",
     url: "https://frontend-three-delta-12.vercel.app",
     tags: ["React", "Python", "Google Veo 3.1", "ElevenLabs", "AWS S3"],
     logo: "/ogs-logo.svg",
     logoAlt: "Operation Gigawatt Summit logo",
+    showVisitApp: true,
+  },
+  {
+    title: "Rule Check",
+    description: "Live SaaS for NFHS officials — agentic RAG with LangSmith evals, 76.9% benchmark precision, and spaced repetition over 1,679 atomic knowledge points.",
+    url: "https://rulecheck.ai",
+    tags: ["React", "Python", "RAG", "Supabase", "Stripe"],
+    logo: "/rulecheck-logo.png",
+    logoAlt: "Rule Check logo",
     showVisitApp: true,
   },
   {
