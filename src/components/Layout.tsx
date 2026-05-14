@@ -140,7 +140,7 @@ const experienceData: ExperienceNode[] = [
       {
         title: "Video Pipeline",
         children: [
-          { title: "Google Veo 3.1" },
+          { title: "Google Veo" },
           { title: "ElevenLabs" },
           { title: "Python + ffmpeg" },
         ],
@@ -387,9 +387,9 @@ interface Project {
 const projectsData: Project[] = [
   {
     title: "Operation Gigawatt Summit",
-    description: "Built a custom Python/ffmpeg pipeline chaining Google Veo 3.1 and ElevenLabs to produce six cinematic AI-generated videos for the Operation Gigawatt Summit (Park City, May 2026) — plus a React frontend with animated door overlays and a multi-step survey wizard.",
+    description: "Built a custom Python/ffmpeg pipeline chaining Google Veo and ElevenLabs to produce six cinematic AI-generated videos for the Operation Gigawatt Summit (Park City, May 2026) — plus a React frontend with animated door overlays and a multi-step survey wizard.",
     url: "https://frontend-three-delta-12.vercel.app",
-    tags: ["React", "Python", "Google Veo 3.1", "ElevenLabs", "AWS S3"],
+    tags: ["React", "Python", "Google Veo", "ElevenLabs", "AWS S3"],
     logo: "/ogs-logo.svg",
     logoAlt: "Operation Gigawatt Summit logo",
     comingSoon: true,
