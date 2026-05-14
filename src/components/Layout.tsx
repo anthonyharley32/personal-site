@@ -387,7 +387,7 @@ interface Project {
 const projectsData: Project[] = [
   {
     title: "Operation Gigawatt Summit",
-    description: "Interactive web experience for energy leaders, investors, and policymakers at the Operation Gigawatt Summit (Park City, May 2026) — AI-generated door videos, survey wizard, and two hidden games.",
+    description: "Built a custom Python/ffmpeg pipeline chaining Google Veo 3.1 and ElevenLabs to produce six cinematic AI-generated videos for the Operation Gigawatt Summit (Park City, May 2026) — plus a React frontend with animated door overlays and a multi-step survey wizard.",
     url: "https://frontend-three-delta-12.vercel.app",
     tags: ["React", "Python", "Google Veo 3.1", "ElevenLabs", "AWS S3"],
     logo: "/ogs-logo.svg",
